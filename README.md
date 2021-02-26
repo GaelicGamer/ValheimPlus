@@ -6,11 +6,10 @@ A HarmonyX Mod aimed at improving the gameplay quality of Valheim. The mod inclu
 # ValheimPlus Server Hosting
 Below you can find a list of hosting companies that are supporting ValehimPlus with good prices and easy installation.
 
-[![ValheimPlus Logo](http://valheimplus.com/zap/692x127.jpg)](https://zap-hosting.com/valheimplus)
+[![GPortal](http://valheim.plus/gportal/banner.jpg)](https://www.g-portal.com/valheim)
+[![ZapHosting](http://valheimplus.com/zap/692x127.jpg)](https://zap-hosting.com/valheimplus)
+[![GFXHosting](https://www.gtxgaming.co.uk/wp-content/uploads/2021/02/valheim_plus_banner-3.png)](https://www.gtxgaming.co.uk/clientarea/aff.php?aff=2096)
 
-If you are interested in being in this list, please contact us via Discord, GitHub, Nexus or via e-mail at "contact@valheim.plus".
-
-*(We do not agree to exclusive deals.)*
 
 # Features
 All of these features can be adjusted by a configuration file. This also allows you to only enable very specific featues.
@@ -89,6 +88,7 @@ All of these features can be adjusted by a configuration file. This also allows 
 * Modify maximum Players on a server
 * Modify auto save interval
 * Modify server data rate in kilobyte
+* Automatic server configuration sync when a user joins the server to sync the configuration of V+
 
 ## Map
 * Activate shared position on map automatically
@@ -167,13 +167,14 @@ We supply 4 different versions of V+ with every release since version 0.8. You c
    1. Right click the valheim game in your steam library
    2. "Go to Manage" -> "Browse local files"
    2. Steam should open your game folder for you when clicked
+3. Unzip the contents of WindowsClient.zip into the Valheim root folder.
    
 **Please read the section about Server Config & Version Control (About Version Enforcement) below.**
 
 
 ## **[Server] Windows**
 
-[Easy to setup and ready to use ValheimPlus servers can be rented here at Zap hosting !](https://zap-hosting.com/valheimplus)
+[Easy to setup and ready to use ValheimPlus servers can be rented here at ZAP-Hosting.com !](https://zap-hosting.com/valheimplus)
 
 We will not explain how you create a dedicated server. This will only explain how you install the mod.
 
@@ -185,16 +186,16 @@ We will not explain how you create a dedicated server. This will only explain ho
 
 ## **[Server] Unix**
 
-[Easy to setup and ready to use ValheimPlus servers can be rented here at Zap hosting !](https://zap-hosting.com/valheimplus)
+[Easy to setup and ready to use ValheimPlus servers can be rented here at ZAP-Hosting.com !](https://zap-hosting.com/valheimplus)
 
 We will not explain how you create a dedicated server. This will only explain how you install the mod.
 1. Download the [latest package called UnixServer.zip over this link](https://github.com/nxPublic/ValheimPlus/releases/latest/). *(Scroll down and click "assets")*
 2. Locate your server folder
 3. Unpack all the contents into your root server folder.
 
-*Make sure to execute 'chmod u+x run_bepinex.sh'*
+*Make sure to execute 'chmod u+x start_server_bepinex.sh'*
 
-*Make sure to run the run_bepinex.sh*
+*Make sure to run start_server_bepinex.sh*
 
 **Uses libc6-dev**
 
@@ -453,16 +454,13 @@ baseUnarmedDamage=10
 [Server]
 
 ; Change false to true to enable this section
-enabled=false
+enabled=true
 
 ; Modify the amount of players on your Server
 maxPlayers=10
 
 ; Removes the requirement to have a server password
 disableServerPassword=false
-
-; This setting adds a version control check to verifiy that the server and yourself have the same configuration file installed.
-enforceConfiguration=false
 
 ; This settings add a version control check to make sure that people that try to join your game or the server you try to join has V+ installed
 enforceMod=true
@@ -497,7 +495,7 @@ sneakStaminaDrain=10
 staminaRegen=5
 
 ; Changes the delay until stamina regeneration sets in
-staminaRegenDelay=0.5
+staminaRegenDelay=1
 
 ; Changes the stamina drain of swimming
 swimStaminaDrain=5

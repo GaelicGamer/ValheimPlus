@@ -1,5 +1,6 @@
 ﻿using System;
 using HarmonyLib;
+using ValheimPlus.RPC;
 using Steamworks;
 using ValheimPlus.Configurations;
 using UnityEngine;
@@ -7,6 +8,16 @@ using System.Collections.Generic;
 
 namespace ValheimPlus
 {
+    [HarmonyPatch(typeof(Game), "Start")]
+    public static class GameStartPatch
+    {
+        private static void Prefix()
+        {
+            //Config Sync
+            ZRoutedRpc.instance.Register("VPlusConfigSync", new Action<long, ZPackage>(VPlusConfigSync.RPC_VPlusConfigSync));
+        }
+    }
+
     [HarmonyPatch(typeof(Game), "GetDifficultyDamageScale")]
     public static class ChangeDifficultyScaleDamage
     {
